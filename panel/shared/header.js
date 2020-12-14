@@ -77,7 +77,7 @@ $('.shared-header')[0].innerHTML =
 
         <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="day-end-in" id="countdown" style="padding-right: 10px;">Auction ends at: 00:00:00</span></div>
 
-        <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;"><span class="my-acc-add">...</span><img class="img-metamask" src="../img/tronlink.jpg" style="width: 28px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 6px;"></div>
+        <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;"><span class="my-acc-add">...</span><a href="https://tronscan.org/#/walletconnect"> <img class="img-metamask" src="../img/tronlink.jpg" style="width: 28px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 6px;"></a></div>
     </div>
 </div>
 `
