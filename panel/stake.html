@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- BEGIN: Head -->
+
+<head>
+
+    <meta charset="utf-8">
+    <link href="../img/BUB-logo-s.jpg" rel="shortcut icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Next Generation Staking Platform">
+    <meta name="keywords" content="BUB, crypto, bitcoin, ethereum, trx, staking, BUB Token">
+    <meta name="author" content="Bitty">
+    <title>BUB Staking</title>
+    <!-- BEGIN: CSS Assets-->
+    <link rel="stylesheet" href="css/panels.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <!-- END: CSS Assets-->
+</head>
+	<!-- END: Head -->
+
+<body class="app">
+
+	<!--BEGIN HEADER-->
+    <div class="shared-header" style="height: 86px;"></div>
+
+
+    <div class="alert-holder">
+        <div class="alert-tb rounded-md flex items-center px-5 py-4 mb-2 bg-theme-18 text-theme-9"
+            style="display:none; position: fixed;width: fit-content; right: 10px;top: 9px;z-index: 10000;opacity: 0.96; padding-left: 30px; padding-right: 30px;">
+            <i data-feather="alert-circle" class="w-6 h-6 mr-2" style="display: inline-block;"></i><span
+                class="alert-inner" style="display: inline-block;"></span>
+        </div>
+
+        <div class="alert-tb rounded-md flex items-center px-5 py-4 mb-2 bg-theme-17 text-theme-11"
+            style="display:none; position: fixed;width: fit-content; right: 10px;top: 9px;z-index: 10000;opacity: 0.96; padding-left: 30px; padding-right: 30px;">
+            <i data-feather="alert-circle" class="w-6 h-6 mr-2" style="display: inline-block;"></i><span
+                class="alert-inner" style="display: inline-block;"></span>
+        </div>
+
+        <div class="alert-tb rounded-md flex items-center px-5 py-4 mb-2 bg-theme-31 text-theme-6"
+            style="display:none; position: fixed;width: fit-content; right: 10px;top: 9px;z-index: 10000;opacity: 0.96; padding-left: 30px; padding-right: 30px;">
+            <i data-feather="alert-circle" class="w-6 h-6 mr-2" style="display: inline-block;"></i><span
+                class="alert-inner" style="display: inline-block;"></span>
+        </div>
+    </div>
+	<!--END HEADER-->	
+
+    <!-- BEGIN: Top Menu -->
+	<style type="text/css">
+		nav{
+			margin: 0 auto;
+			display: table;
+		}
+	</style>
+    <nav class="top-nav" style="background: #32556e;">
+        <ul>
+            <li>
+                <a href="refer.html" class="top-menu">
+                    <div class="top-menu__icon"> <i data-feather="users"></i> </div>
+                    <div class="top-menu__title" style="color: #c5d6f3;">Referrals and FAQ</div>
+                </a>
+            </li>
+            <li>
+                <a href="stake.html" class="top-menu top-menu--active">
+                    <div class="top-menu__icon"> <i data-feather="layers"></i> </div>
+                    <div class="top-menu__title" style="color: #c5d6f3;">Stake</div>
+                </a>
+            </li>
+            <li>
+                <a href="auction.html" class="top-menu">
+                    <div class="top-menu__icon"> <i data-feather="server"></i> </div>
+                    <div class="top-menu__title" style="color: #c5d6f3;">Auction</div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- END: Top Menu -->
+    <!-- BEGIN: Content -->
+    <div class="content" style="">
+        <div class="grid grid-cols-12 gap-6">
+		
+<!---------- STAKE INITIALIZE INFO ------------->
+            <div class="width: auto; margin-top: 10px; col-span-12 lg:col-span-4 xxl:col-span-5 flex lg:block flex-col-reverse">
+			
+                <div class="intro-y inbox box mt-5" style="background: #0e314a;">
+
+                    <div class="box-body col-span-12 lg:col-span-5 box"
+                        style="background: #3b5166; border-radius: 9px;box-shadow: 0px 0px 18px #32556e ;">
+						
+                        <div class="box-header flex items-center p-5 border-b border-gray-200"
+                            style="padding-top: 7px;padding-bottom: 7px;padding-right: 8px;">
+							
+                            <h2 class="font-medium text-base mr-auto" style="color: #051242; font-weight: 900;">
+                                Stake
+                            </h2>
+
+                            <button class="your-token-balance-hd button w-24 mr-1 mb-2 bg-gray-200 text-gray-600"
+                                style=" margin: 0; width: auto; background: #474b60b8;
+                                box-shadow: 0px 0px 7px #313443;color: #051242;">Your BUB balance: --
+
+                            </button>
+
+                        </div>
+                        <div class="p-5" style="padding: 0;">
+                            <div class="border-gray-200">
+                                <div class="" style="padding-top: 30px;"
+                                    style="padding-bottom: 0px;">
+
+                                    <div class="intro-y col-span-12 sm:col-span-6">
+                                        <div style="font-weight: 900;color: #051242; padding-bottom: 3px;margin: 0px auto;text-align: center;margin: 0px auto;"> Amount to
+                                            Stake</div>
+                                        <input type="number" class="input w-full border flex-1 stake-inp-amount text-gray-700"
+                                            oninput="stakeChangeAmount()" placeholder="Amount"
+                                            style="color: #051242;text-align: center;margin: 0px auto;
+                                            font-weight: 600;
+                                            url('../img/BUB-logo-s.jpg') no-repeat right 8px center;
+                                            background-size: 24px;
+                                            background-color: #0e314a;
+                                            border: 3px solid #3a3e50;">
+                                    </div>
+
+                                    <div class="intro-y col-span-12 sm:col-span-6">
+                                        <div style="font-weight: 900;color: #051242; padding-bottom: 3px; text-align: center;margin: 0px auto;"> Days to
+                                            Stake (MAX: 365)</div>
+                                        <input type="number" class="input w-full border flex-1 stake-inp-day text-gray-700"
+                                            oninput="stakeChangeDays()" placeholder="Max Stake Days: 365" 
+											style="color: #051242;text-align: center;margin: 0px auto;
+                                            font-weight: 600;
+                                            url('../img/BUB-logo-s.jpg') no-repeat right 8px center;
+                                            background-size: 24px;
+                                            background-color: #0e314a;
+                                            border: 3px solid #3a3e50;">
+                                    </div>
+
+                                    <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
+
+                                        <div style="width: 100%;text-align: center;margin: 0px auto;">
+                                            <button onClick="doStake()"
+                                                class="stake-btn button w-24 shadow-md inline-block mr-1 mb-2 bg-theme-1 text-white inline-flex items-center"
+                                                style="transition: all 0.20s ease-in-out; background-image: linear-gradient(45deg, #077688 0%, #02acc3 100%);
+                                                box-shadow: 0 3px 6px rgba(0, 0, 0, .3), inset 0 0 10px 3px rgba(0, 0, 0, .2), 0 3px 20px rgb(6 135 156 / 0.5), 0 3px 35px rgb(2 172 195 / 0.48);  width: 94%;
+                                            height: 37px;width: 90%;margin: 0;color: #fff9f885;font-size: 20px;">
+                                                <span class="btn-usertransfer-txt" style="text-align: center;margin: 0px auto;color: #051242;">
+                                                    Stake
+                                                </span>
+                                                <div class="btn-usertransfer-load"
+                                                    style="padding-right: calc(50% - 8px); display:none">
+                                                    <i data-loading-icon="oval" data-color="white"
+                                                        class="w-4 h-4 ml-auto" style="display: none;">
+                                                    </i>
+                                                </div>
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="mt-6 lg:mt-0 flex-1 flex lg:border-0 border-gray-200 pt-5 lg:pt-0"
+                                        style="width: 30vw; margin: 0px auto; padding-top: 10px;">
+                                        
+										<div class="text-center rounded-md w-20 py-3">
+                                            <div class="margin: 0px auto;" 
+												style="margin: 0px auto; width: 15vw; color: #051242; text-align: center;">First Day of Divs</div>
+                                            <div class="font-semibold text-theme-1 text-lg st-val-1"
+                                                style="margin: 0px auto; width: 15vw; color: #051242; text-align: center;">--</div>
+                                        </div>
+                                       
+										<div class="text-center rounded-md w-20 py-3"
+											style="margin: 0px auto;">
+                                            <div class="text-gray-600" 
+												style="width: 15vw; border-left: 2px solid #27273d57;color: #051242; text-align: center;">Collect On Day</div>
+                                            <div class="font-semibold text-theme-1 text-lg st-val-2"
+                                                style="width: 15vw; border-left: 2px solid #27273d57;color: #051242; text-align: center;">--</div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!------------ STAKE INITIALIZE INFO END ---------->
+			<div class="col-span-12 lg:col-span-8 xxl:col-span-9">
+	<!------------ BONUSES ----------------------->
+				<div class="box-body intro-y box lg:mt-5"
+					style="margin-bottom: 15px;background: #3b5166; border-radius: 9px;box-shadow: 0px 0px 18px #32556e ;">
+					
+						<div class="box-header flex items-center p-5"
+							style="padding-top: 7px;padding-bottom: 7px;padding-right: 8px;">
+						
+						<h2 class="font-medium text-base mr-auto" style="color: #051242; font-weight: 900;">
+							Stake Bonus Info
+						</h2>
+
+						<button class="button w-24 mr-1 mb-2 bg-gray-200 text-gray-600"
+							style=" margin: 0; width: auto; padding: 5px; background: #474b60b8; box-shadow: 0px 0px 7px #313443;">
+							<div href="javascript:;" class="bounty-days-el tooltip text-gray-600"
+								title="Increase your stake length for more BonusDays!"
+								style=" padding: 3px 8px; font-weight: 600; color: #051242;">Eligible for 0 BonusDays</div>
+						</button>
+					</div>
+					<div class="p-5">
+
+						<div class="bonus-div-0 flex flex-col lg:flex-row pb-5 -mx-5">
+							
+							<div class="bonus-div-1 flex flex-1"
+								style="width: 10vw; margin: 0px auto;">
+								
+								<div class="ml-5" style="color: #051242;">
+									<div class="text-gray-600" 
+										style="font-weight: 600;color: #051242;">Time Bonus:</div>
+									<div class="text-gray-600" 
+										style="font-weight: 600;color: #051242;">Value Bonus:</div>
+								</div>
+								<div class="ml-5" style="color: #051242;">
+									<div class="text-gray-600 st-val-5" 
+										style="text-align: left; color: #051242;">+ 0.000 BUB</div>
+									<div class="text-gray-600 st-val-4" 
+										style="text-align: left; color: #051242;">+ 0.000 BUB</div>
+								</div>
+								
+							</div>
+							
+							<div class="bonus-div-2 flex flex-1"
+								style="width: 10vw; margin: 0px auto;">
+								
+								<div class="ml-5" style="color: #051242;">
+									<div class="text-gray-600" 
+										style="color: #051242;">Total:</div>
+									<div class="text-gray-600" 
+										style="color: #051242;">Effective BUB:</div>
+								</div>
+								<div class="ml-5" style="color: #051242;">
+									<div class="text-gray-600 st-val-6" 
+										style="text-align: left; color: #051242;">0.000 BUB</div>
+									<div class="text-gray-600 st-val-7" 
+										style="text-align: left; color: #051242;">0.000 BUB</div>
+								</div>
+								
+							</div>
+
+							<div class="bonus-div-3 flex flex-1"
+								style="width: 25vw; margin: 0px auto;border-left: 3px solid #27273d57;">
+								<div class="ml-5" style="">
+									<div class="text-gray-600" 
+										style="margin: 0px auto;font-weight: 600; color: #051242;">TRX in Today's Div Pool:</div>
+									<div class="text-gray-600 avg-day" 
+										style="margin: 0px auto;font-weight: 600; color: #051242;">4-Day Average:</div>
+								</div>
+								<div class="ml-5" style="">
+									<div class="text-gray-600 st-val-8"
+										style="font-weight: 600;color: #4e96a1; text-shadow: 0px 0px 8px #03a5bb; color: #051242;">TRX</div>
+									<div class="text-gray-600 st-val-9" 
+										style="font-weight: 500; color: #051242;">TRX</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+	<!-------------- Bonuses END ----------------->
+	<!--------- Start Active Stakes -------------->
+				<div class="box-body col-span-12 lg:col-span-5 box"
+					style="margin-bottom: 20px; background: #3b5166; border-radius: 9px;box-shadow: 0px 0px 18px #32556e ;">
+
+						<div class="box-header flex items-center p-5 border-b border-gray-200"
+							style="padding-top: 7px;padding-bottom: 7px;padding-right: 8px;">
+					
+						<h2 class="font-medium text-base mr-auto" style="color: #051242; font-weight: 900; text-align:center;margin: 0px auto;">
+							My Active Stakes
+						</h2>
+
+						<button class="button w-24 mr-1 mb-2 bg-gray-200 text-gray-600"
+							style=" margin: 0; width: auto; padding: 5px;background: #2095ff; box-shadow: 0px 0px 7px #2095ff;"
+							onClick="refreshMyStakes()">
+							<i data-feather="refresh-ccw" class="mx-auto"></i>
+						</button>
+					</div>
+					<div class="p-5" style="padding: 0; overflow-x: auto;">
+
+						<div class="p-5" style="padding: 0;">
+						
+							<div class="active-stakes intro-y inbox box mt-5" style="margin: 0; box-shadow: none;">
+							
+								<div class="ro-head p-5 flex flex-col-reverse sm:flex-row text-gray-600 border-b border-gray-200"
+									style="padding: 1px; padding-left: 5px;">
+									
+									<!------------------------mobile----------------------->
+									<div class="w-64 sm:w-auto truncate mobile-stake-resize"
+										style="width: 50vw; text-align:center;font-weight: 900; color: #051242;">
+										<span class="stake-headers inbox__item--highlight" style="text-align: center;">Start</span>
+									</div>
+									<!-----------------------endmobile--------------------->
+
+									<div class="w-64 sm:w-auto truncate mobile-stake-hide"
+										style="width: 50vw; text-align:center;font-weight: 900; color: #051242;">
+										<span class="inbox__item--highlight" style="text-align: center;">End</span>
+									</div>
+									
+									<div class="w-64 sm:w-auto truncate mobile-stake-hide"
+										style="width: 150vw; text-align:center; font-weight: 900; color: #051242;">
+										<span class="inbox__item--highlight" style="text-align: center;">Progress</span>
+									</div>
+
+									<div class="w-64 sm:w-auto truncate mobile-stake-hide"
+										style="width: 90vw; text-align:center; font-weight: 900; color: #051242;">
+										<span class="inbox__item--highlight" style="text-align: center;">Staked</span>
+									</div>
+									
+									<div class="w-64 sm:w-auto truncate mobile-stake-hide"
+										style="width: 110vw; text-align:center; font-weight: 900; color: #051242;">
+										<span class="inbox__item--highlight" style="text-align: center;">Shares</span>
+									</div>
+
+									<div class="w-64 sm:w-auto truncate mobile-stake-hide"
+										style="width: 125vw; text-align:center; font-weight: 900; color: #051242;">
+										<span class="inbox__item--highlight" style="text-align: center;">Bonus</span>
+									</div>
+									
+									<div class="w-64 sm:w-auto truncate mobile-stake-hide"
+										style="width: 125vw; text-align:center; font-weight: 900; color: #051242;">
+										<span class="inbox__item--highlight" style="text-align: center;">TRX Divs</span>
+									</div>
+
+									<div class="w-64 sm:w-auto truncate mobile-stake-hide"
+										style="width: 100vw; text-align:center; font-weight: 900; color: #051242;">
+										<span class="inbox__item--highlight" style="text-align: center;">Interest</span>
+									</div>
+
+									<div class="w-64 sm:w-auto truncate mobile-stake-hide"
+										style="width: 100vw; text-align:center; font-weight: 900; color: #051242;">
+										<span class="inbox__item--highlight" style="text-align: center;">Current Value</span>
+									</div>
+
+									<div class="w-64 sm:w-auto truncate mobile-stake-hide"
+										style="width: 100vw; text-align:center; font-weight: 900; color: #051242;">
+										<span class="inbox__item--highlight" style="text-align: center;">Action</span>
+									</div>
+
+								</div>
+								<div class="my-stakes-list overflow-x-auto sm:overflow-x-visible sm:overflow-y-visible"
+									style="background-color: transparent;">
+									<div class="intro-y" style="text-align: center;background-color: #3b5166;">
+										<span class="active-stake-loading" style="stake-info font-weight: 900;font-size: 22px; color: #051242;">Loading...</span>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+	<!--------------End Active Stakes------------>
+	<!-------------Start Ended Stakes------------
+				<div class="box-body col-span-12 lg:col-span-5 box"
+					style="margin-bottom: 20px;  background: #3b5166; border-radius: 9px;box-shadow: 0px 0px 18px #32556e ;">
+				
+						<div class="box-header flex items-center p-5 border-b border-gray-200"
+							style="padding-top: 7px;padding-bottom: 7px;padding-right: 8px;">
+						
+						<h2 class="font-medium text-base mr-auto" style="color: #051242; font-weight: 900; text-align: center;margin: 0px auto;">
+							My Ended Stakes
+						</h2>
+						<button class="button w-24 mr-1 mb-2 bg-gray-200 text-gray-600"
+							style=" margin: 0; width: auto; padding: 5px;background: #2095ff; box-shadow: 0px 0px 7px #2095ff;"
+							onClick="refreshMyEndedStakes()">
+							<i data-feather="refresh-ccw" class="mx-auto"></i>
+						</button>
+					</div>
+
+
+					<div class="p-5" style="padding: 0;" style="background: #2e2e49;">
+					
+						<div class="intro-y inbox box mt-5" style="margin: 0; box-shadow: none;">
+						
+							<div class="ro-head p-5 flex flex-col-reverse sm:flex-row text-gray-600 border-b border-gray-200"
+								style="padding: 1px; padding-left: 5px;">
+								<div class="w-64 sm:w-auto truncate ended-stake-headers"
+									style="width: 50vw; text-align:center; font-weight: 900; color: #051242;">
+									<span class="inbox__item--highlight" style="text-align: center;">Start</span>
+								</div>
+								<div class="w-64 sm:w-auto truncate ended-stake-div"
+									style="width: 50vw; text-align:center; font-weight: 900; color: #051242;">
+									<span class="mobile-stake-hide inbox__item--highlight" style="text-align: center;">End</span>
+								</div>
+
+								<div class="w-64 sm:w-auto truncate ended-stake-div"
+									style="width: 70vw; text-align:center; font-weight: 900; color: #051242;">
+									<span class="mobile-stake-hide inbox__item--highlight" style="text-align: center;">Progress</span>
+								</div>
+
+								<div class="w-64 sm:w-auto truncate ended-stake-div"
+									style="width: 125vw; text-align:center; font-weight: 900; color: #051242;">
+									<span class="mobile-stake-hide inbox__item--highlight" style="text-align: center;">Staked BUB</span>
+								</div>
+
+								<div class="w-64 sm:w-auto truncate ended-stake-div"
+									style="width: 125vw; text-align:center; font-weight: 900; color: #051242;">
+									<span class="mobile-stake-hide inbox__item--highlight" style="text-align: center;">Dividends</span>
+								</div>
+
+								<div class="w-64 sm:w-auto truncate ended-stake-div"
+									style="width: 125vw; text-align:center; font-weight: 900; color: #051242;">
+									<span class="mobile-stake-hide inbox__item--highlight" style="text-align: center;">Returned BUB</span>
+								</div>
+
+							</div>
+							<div class="my-ended-stakes-list overflow-x-auto sm:overflow-x-visible sm:overflow-y-visible"
+								style="background-color: transparent;">
+								<div class="intro-y" style="text-align: center;background-color: #3b5166;">
+									<span class="ended-stake-loading" style="font-weight: 900;font-size: 22px; color: #051242;">Loading...</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	!--------------End Ended Stakes------------>
+			</div>
+		</div>
+		<!--Contact Info-->	
+		<footer>
+				<div class="flex items-center justify-center"
+					style="border: 0;padding: 12px;">
+
+					<div class="contact-info">
+						<a href="https://t.me/BUBToken" target="blank">
+						<img src="../img/sm-telegram.png"></a>
+					</div >
+					<div class="contact-info" style="margin-left: 4px; margin-right: 4px;">
+						<a href="https://twitter.com/BUBtoken" target="blank">
+						<img src="../img/sm-twitter.png"></a>
+					</div>
+					<div class="contact-info">
+						<a href="mailto: BUBToken@gmail.com" target="blank">
+						<img src="../img/sm-email.png"></a>
+					</div>		
+				</div>			
+		</footer>
+		<!--End Contact Info-->
+	</div>
+
+
+        <a class="btn-f-style" href="#" data-title="Awesome Button"></a>
+	
+    </div>
+    <!-- END: Content -->
+    <!-- BEGIN: JS Assets-->
+    <script>
+        var web3 = new Web3();
+        web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"))
+    </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="./js/web3.min.js"></script>
+    <script src="./shared/header.js"></script>
+    <script src="./js/core.js"></script>
+    <script src="./js/stake.js"></script>
+    <script src="./js/app.js"></script>
+
+    <!-- END: JS Assets-->
+</body>
+</html>

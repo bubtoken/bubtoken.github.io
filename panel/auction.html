@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- BEGIN: Head -->
+
+<head>
+
+    <meta charset="utf-8">
+    <link href="../img/BUB-logo-s.jpg" rel="shortcut icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Next Generation Staking Platform">
+    <meta name="keywords" content="BUB, crypto, bitcoin, ethereum, trx, staking, BUB Token">
+    <meta name="author" content="LEFT4CODE">
+    <title>BUB - Auction</title>
+    <!-- BEGIN: CSS Assets-->
+    <link rel="stylesheet" href="css/panels.css" />
+    <link rel="stylesheet" href="css/app.css" />
+
+    <!-- END: CSS Assets-->
+</head>
+<!-- END: Head -->
+
+<body class="app">
+
+	<!--BEGIN HEADER-->
+    <div class="shared-header" style="height: 86px;"></div>
+
+
+    <div class="alert-holder">
+        <div class="alert-tb rounded-md flex items-center px-5 py-4 mb-2 bg-theme-18 text-theme-9"
+            style="display:none; position: fixed;width: fit-content; right: 10px;top: 9px;z-index: 10000;opacity: 0.96; padding-left: 30px; padding-right: 30px;">
+            <i data-feather="alert-circle" class="w-6 h-6 mr-2" style="display: inline-block;"></i><span
+                class="alert-inner" style="display: inline-block;"></span>
+        </div>
+
+        <div class="alert-tb rounded-md flex items-center px-5 py-4 mb-2 bg-theme-17 text-theme-11"
+            style="display:none; position: fixed;width: fit-content; right: 10px;top: 9px;z-index: 10000;opacity: 0.96; padding-left: 30px; padding-right: 30px;">
+            <i data-feather="alert-circle" class="w-6 h-6 mr-2" style="display: inline-block;"></i><span
+                class="alert-inner" style="display: inline-block;"></span>
+        </div>
+
+        <div class="alert-tb rounded-md flex items-center px-5 py-4 mb-2 bg-theme-31 text-theme-6"
+            style="display:none; position: fixed;width: fit-content; right: 10px;top: 9px;z-index: 10000;opacity: 0.96; padding-left: 30px; padding-right: 30px;">
+            <i data-feather="alert-circle" class="w-6 h-6 mr-2" style="display: inline-block;"></i><span
+                class="alert-inner" style="display: inline-block;"></span>
+        </div>
+    </div>
+	<!--END HEADER-->		
+    <!-- BEGIN: Top Menu -->
+	<style type="text/css">
+		nav{
+			margin: 0 auto;
+			display: table;
+		}
+	</style>
+    <nav class="top-nav" style="background: #32556e;">
+        <ul>
+            <li>
+                <a href="refer.html" class="top-menu ">
+                    <div class="top-menu__icon"> <i data-feather="users"></i> </div>
+                    <div class="top-menu__title" style="color: #c5d6f3;">Referrals and FAQ</div>
+                </a>
+            </li>
+            <li>
+                <a href="stake.html" class="top-menu">
+                    <div class="top-menu__icon"> <i data-feather="layers"></i> </div>
+                    <div class="top-menu__title" style="color: #c5d6f3;">Stake</div>
+                </a>
+            </li>
+            <li>
+                <a href="auction.html" class="top-menu top-menu--active">
+                    <div class="top-menu__icon"> <i data-feather="shuffle"></i> </div>
+                    <div class="top-menu__title" style="color: #c5d6f3;">Auction</div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- END: Top Menu -->
+    <!-- BEGIN: Content -->
+    <div class="content" style="overflow: hidden;">
+
+        <div class="modal" id="button-modal-enter-lobby" style="">
+		
+            <div class="modal__content relative"
+                style="background: ; border-radius: 10px; box-shadow: 0px 0px 30px ;"> <a
+                    data-dismiss="modal" href="javascript:;" class="absolute right-0 top-0 mt-3 mr-3"
+                    style="z-index: 10000000;"> <i data-feather="x" class="close-modal-a w-8 h-8 text-gray-500"></i>
+                </a>
+
+                <div class="intro-y col-span-12 sm:col-span-6" style="padding-top: 50px; padding: 50px 50px 20px;">
+                    <div style="font-weight: 900;color: #051242; padding-bottom: 3px;"> Amount of
+                        TRX
+                        to Enter:</div>
+                    <input type="number" class="auction-amount-entry input w-full border flex-1 stake-inp-amount"
+                        placeholder="1000.00" style="color: #abbac6; font-weight: 700;">
+                </div>
+
+                <div class="px-5 pb-8 text-center lobby-button" style="padding: 20px;"> <button type="button" data-dismiss="modal"
+                        class="button w-24 bg-theme-1 text-white"
+                        style="width: auto; background: #2095ff; width: 100%;box-shadow: 0px 0px 18px #0e314a;"
+                        onclick="enterLobbyFinal()">Enter
+                        the Auction</button> </div>
+			</div>
+        </div>
+
+            <div class="col-span-12 lg:col-span-8 xxl:col-span-9 intro-y box"
+                style="margin-top:20px; background: #313443; border-radius: 9px;box-shadow: 0px 0px 18px #1d1f2fb0;">
+				
+                <div class="p-5" style="padding: 0; margin-bottom: 10px;">
+                    <div class="box-header intro-y inbox box mt-5"
+                        style="margin: 0; box-shadow: 0px 0px 18px #1d1f2fb0 ">
+                        <div class="p-5 flex flex-col-reverse sm:flex-row text-gray-600 border-b border-gray-200"
+                            style="border: 0;">
+
+                            <div class="w-64 sm:w-auto truncate mobile-auction-resize"
+                                style="width: 18vw; text-align:center; font-weight: 900;color: #051242;vertical-align: middle; margin: auto;">
+                                <span class="auction-headers inbox__item--highlight">Day</span>
+                            </div>
+
+                            <div class="w-64 sm:w-auto truncate mobile-auction-hide"
+                                style="width: 100vw; text-align:center; font-weight: 900;color: #051242;">
+                                <span class=" inbox__item--highlight">Pool</span>
+                            </div>
+
+                            <div class="w-64 sm:w-auto truncate mobile-auction-hide"
+                                style="width: 75vw; text-align:center; font-weight: 900;padding-left: 0%;color: #051242;vertical-align: middle; margin: auto;">
+                                <span class=" inbox__item--highlight" style="    margin-left: 8%;">BUB/TRX</span>
+                            </div>
+
+                            <div class="w-64 sm:w-auto truncate mobile-auction-hide"
+                                style="width: 105vw; text-align:center; font-weight: 900;padding-left: 0%;color: #051242;vertical-align: middle; margin: auto;">
+                                <span class=" inbox__item--highlight" style="    margin-left: 8%;">State</span>
+                            </div>
+
+                            <div class="w-64 sm:w-auto truncate mobile-auction-hide"
+                                style="width: 105vw;text-align:center;font-weight: 900;padding-left: 0%;color: #051242;vertical-align: middle; margin: auto;">
+                                <span class=" inbox__item--highlight">Receive</span>
+                            </div>
+
+                            <div class="w-64 sm:w-auto truncate mobile-auction-hide"
+                                style="width: 105vw;text-align:center;font-weight: 900;color: #051242;vertical-align: middle; margin: auto;">
+                                <span class=" inbox__item--highlight">Your Entry</span>
+
+                            </div>
+
+                            <div class="w-64 sm:w-auto truncate mobile-auction-hide"
+                                style="width: 75vw;text-align:center;font-weight: 900;color: #051242;vertical-align: middle; margin: auto;">
+                                <span class=" inbox__item--highlight">Day Entry</span>
+                            </div>
+
+                            <div style="width: 105vw; text-align:center; font-weight: 900;color: #051242;vertical-align: middle; margin: auto;"
+                                class="w-64 sm:w-auto truncate">
+                                <span class="inbox__item--highlight"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <div style="min-width: 600px;">
+
+                        <div class="holder-open">
+                            <div class="box px-4 py-4 mb-3 flex items-center zoom-in"
+                                style="cursor: auto; margin-bottom: 7px; background-color: #4490c7; color: #051242; height: 47px;">
+
+                                <div class="fi-1-div w-64 sm:w-auto truncate"
+                                    style="display:inline-block;width: 5%;text-align:center;font-weight: 900;color: #051242;">
+                                    <span class="fi-1 inbox__item--highlight">--</span>
+                                </div>
+
+                                <div class="fi-2-div w-64 sm:w-auto truncate"
+                                    style="display:inline-block; width: 14%; text-align:center; font-weight: 900;color: #051242;">
+                                    <span class="fi-2 inbox__item--highlight">--</span>
+                                </div>
+
+                                <div class="fi-4-div w-64 sm:w-auto truncate"
+                                    style="display:inline-block;width: 15.0%;text-align:center;font-weight: 900;color: #051242;">
+                                    <span class="fi-4 inbox__item--highlight">--</span>
+                                </div>
+
+                                <div class="fi-5-div w-64 sm:w-auto truncate"
+                                    style="display:inline-block;width: 16.0%;text-align:center;font-weight: 900;color: #051242;">
+                                    <span class="fi-5 inbox__item--highlight">open</span>
+                                </div>
+
+                                <div class="fi-6-div w-64 sm:w-auto truncate"
+                                    style="display:inline-block;width: 15.5%;text-align:center;font-weight: 900;color: #051242;">
+                                    <span class="fi-6 inbox__item--highlight">--</span>
+                                </div>
+
+                                <div class="fi-8-div w-64 sm:w-auto truncate"
+                                    style="display:inline-block;width: 15.5%;text-align:center;font-weight: 900;color: #051242;">
+                                    <span class="fi-8 inbox__item--highlight">--</span>
+                                </div>
+
+                                <div class="fi-10-div w-64 sm:w-auto truncate"
+                                    style="display:inline-block;width: 15.5%;text-align:center;font-weight: 900;color: #051242;">
+                                    <span class="fi-10 inbox__item--highlight">--</span>
+                                </div>
+
+
+                                <div style="display:inline-block;width: 15.5%;" class="lobby-button">
+                                    <a class="btn-auction-enter button w-24 shadow-md mr-1 mb-2 bg-theme-1 text-white"
+                                        href="javascript:;" data-toggle="modal" data-target="#button-modal-enter-lobby"
+                                        style="margin: 0; margin-right: 8%; width: 81%; background-color: #2095ff; float: right; padding: 6px 0px 6px 0px;"
+                                        onclick="enterLobby('btn-auction-enter')">
+                                        <span class="btn-auction-enter-txt" style="width: auto; margin: 0px auto;">ENTER
+                                        </span>
+                                        <div class="btn-auction-enter-load"
+                                            style="padding-right: calc(50% - 8px); display:none">
+                                            <i data-loading-icon="oval" data-color="white" class="w-4 h-4 ml-auto"
+                                                style="display: none;">
+                                            </i>
+                                        </div>
+                                    </a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="holder-list">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+		<!--Contact Info-->	
+		<footer>
+				<div class="flex items-center justify-center"
+					style="border: 0;padding: 12px;">
+
+					<div class="contact-info">
+						<a href="https://t.me/BUBToken" target="blank">
+						<img src="../img/sm-telegram.png"></a>
+					</div >
+					<div class="contact-info" style="margin-left: 4px; margin-right: 4px;">
+						<a href="https://twitter.com/BUBtoken" target="blank">
+						<img src="../img/sm-twitter.png"></a>
+					</div>
+					<div class="contact-info">
+						<a href="mailto: BUBToken@gmail.com" target="blank">
+						<img src="../img/sm-email.png"></a>
+					</div>		
+				</div>			
+		</footer>
+		<!--End Contact Info-->
+        </div>
+    </div>
+    <!-- END: Content -->
+    <!-- BEGIN: JS Assets-->
+    <script>
+        var web3 = new Web3();
+        web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"))
+    </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="./js/web3.min.js"></script>
+    <script src="./shared/header.js"></script>
+    <script src="./js/core.js"></script>
+    <script src="./js/auction.js"></script>
+    <script src="./js/app.js"></script>
+
+    <!-- END: JS Assets-->
+</body>
+</html>

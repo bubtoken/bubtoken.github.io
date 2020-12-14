@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- BEGIN: Head -->
+
+<head>
+    <meta charset="utf-8">
+    <link href="../img/BUB-logo-s.jpg" rel="shortcut icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description"
+        content="Next Generation Staking Platform">
+    <meta name="keywords"
+        content="BUB, crypto, bitcoin, ethereum, trx, staking, BUB Token">
+    <meta name="author" content="LEFT4CODE">
+    <title>BUB - refer</title>
+    <!-- BEGIN: CSS Assets-->
+    <link rel="stylesheet" href="css/panels.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <!-- END: CSS Assets-->
+</head>
+<!-- END: Head -->
+
+<body class="app">
+
+	<!--BEGIN HEADER-->
+    <div class="shared-header" style="height: 86px;"></div>
+
+
+    <div class="alert-holder">
+        <div class="alert-tb rounded-md flex items-center px-5 py-4 mb-2 bg-theme-18 text-theme-9"
+            style="display:none; position: fixed;width: fit-content; right: 10px;top: 9px;z-index: 10000;opacity: 0.96; padding-left: 30px; padding-right: 30px;">
+            <i data-feather="alert-circle" class="w-6 h-6 mr-2" style="display: inline-block;"></i><span
+                class="alert-inner" style="display: inline-block;"></span>
+        </div>
+
+        <div class="alert-tb rounded-md flex items-center px-5 py-4 mb-2 bg-theme-17 text-theme-11"
+            style="display:none; position: fixed;width: fit-content; right: 10px;top: 9px;z-index: 10000;opacity: 0.96; padding-left: 30px; padding-right: 30px;">
+            <i data-feather="alert-circle" class="w-6 h-6 mr-2" style="display: inline-block;"></i><span
+                class="alert-inner" style="display: inline-block;"></span>
+        </div>
+
+        <div class="alert-tb rounded-md flex items-center px-5 py-4 mb-2 bg-theme-31 text-theme-6"
+            style="display:none; position: fixed;width: fit-content; right: 10px;top: 9px;z-index: 10000;opacity: 0.96; padding-left: 30px; padding-right: 30px;">
+            <i data-feather="alert-circle" class="w-6 h-6 mr-2" style="display: inline-block;"></i><span
+                class="alert-inner" style="display: inline-block;"></span>
+        </div>
+    </div>
+	<!--END HEADER-->	
+
+    <!-- BEGIN: Top Menu -->
+	<style type="text/css">
+		nav{
+			margin: 0 auto;
+			display: table;
+		}
+	</style>
+    <nav class="top-nav" style="background: #32556e;">
+        <ul>
+            <li>
+                <a href="refer.html" class="top-menu top-menu--active">
+                    <div class="top-menu__icon"> <i data-feather="users"></i> </div>
+                    <div class="top-menu__title" style="color: #c5d6f3;">Referrals and FAQ</div>
+                </a>
+            </li>
+            <li>
+                <a href="stake.html" class="top-menu">
+                    <div class="top-menu__icon"> <i data-feather="layers"></i> </div>
+                    <div class="top-menu__title" style="color: #c5d6f3;">Stake</div>
+                </a>
+            </li>
+            <li>
+                <a href="auction.html" class="top-menu">
+                    <div class="top-menu__icon"> <i data-feather="server"></i> </div>
+                    <div class="top-menu__title" style="color: #c5d6f3;">Auction</div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- END: Top Menu -->
+    <!-- BEGIN: Content -->
+    <div class="content" style="">
+
+        <div class="grid grid-cols-12 gap-6">
+
+            <div class="col-span-12 lg:col-span-12 flex lg:block flex-col-reverse"
+            style="padding-top: 20px;">
+            <div class="intro-y inbox box mt-5" style="margin-top: 0px; background: #2e2e49;">
+
+                    <div class="box-body col-span-12 lg:col-span-5 box"
+                        style="">
+				
+                        <div class="box-header flex items-center p-5 border-b border-gray-200"
+                            style="padding-top: 7px;padding-bottom: 7px;padding-right: 8px;">
+						
+                        <h2 class="font-medium text-base mr-auto" style="text-align: center;margin: 0px auto;color: #051242; font-size: 22px font-weight: 900;">
+                            Your Referral Link
+                        </h2>
+
+                    </div>
+                    <div class="p-5" style="padding: 0;">
+                        <div class="border-gray-200">
+                           							
+							<h2 class="font-medium text-base mr-auto"
+								style="color: #051242; font-weight: 900; text-align: center;margin: 0px auto;font-size: 18px; text-shadow: 0px 0px 5px #969cb81f;">
+								Your referrals will earn an extra 5% minted BUB Tokens on their auction collection. <br>
+								As a referrer you will earn an extra 10%. There are no limits on number on the amount of referrals that you can get.
+							</h2>
+							
+                            <div class="border-t border-gray-200 p-5" style="padding-left: 3%;padding-right: 3%; border: 0px; text-align: center;
+                            padding-bottom: 40px;">
+
+                                <input readonly value="--" type="text" class="ref-link input w-full border flex-1"
+                                    style="width: 55%;display: inline-block;vertical-align: top; font-weight: 900;
+                                        color: #051242; height: 40px; background-color: rgb(38 40 53 / 60%); border: 3px solid #3a3e50;">
+
+                                <a onclick="copyLinkToClipboard()" data-event="on-click" href="javascript:;" title="Copied!"
+                                    class="button w-24 inline-block mr-1 mb-2 bg-gray-200 text-gray-600 tooltip button inline-block tooltipstered"
+                                    style="color: #f2f2f29e;margin: 0;margin-left: 3px;height: 40px;background-image: linear-gradient(45deg, #93c34a 0%, #52af4c 100%);
+                                    box-shadow: 0 3px 6px rgba(0, 0, 0, .3), inset 0 0 10px 3px rgba(0, 0, 0, .2), 0 3px 20px #88c04aad, 0 3px 35px rgba(103, 174, 74, 0.28);">Copy Link
+                                </a>
+
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+				<!--FAQ START-->
+                <div class="intro-y box" style="margin-top: 22px;background: #3b5166; margin-bottom: 30px;">
+                    <div class="box-header flex flex-col sm:flex-row items-center p-5 border-b border-gray-200"
+                        style=" border: 0;padding: 12px;">
+                        <h2 class="font-medium text-base mr-auto"
+                            style="color: #051242; font-weight: 900; text-align: center;margin: 0px auto;font-size: 22px; text-shadow: 0px 0px 5px #969cb81f;">
+                            Frequently Asked Questions
+						</h2>
+                    </div>
+                    <div class="p-5" id="basic-accordion">
+                        <div class="preview">
+                            <div class="accordion">
+							
+                                <div class="accordion__pane border-b border-gray-200 pb-4 active"
+                                    style="text-align: center;margin: 0px auto;border-bottom: 5px solid #363655b5;">
+                                    <a href="javascript:;" class="accordion__pane__toggle font-medium block"
+                                        style="color: #051242; font-weight: 600;">What are auction lobbies?</a>
+                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed"
+                                        style="display: block; color: #051242;">
+										Auction lobbies are Daily Auctions that offer BUB Tokens 
+										for TRX based on the BUB and TRX pool at the end of the day. 
+										When you enter with TRX, you will receive a propotioniate amount of BUB to stake.
+										Available BUB Tokens tokens start at 2.5 million, down 4-5000~ per day to a MINIMUM of 100,000 tokens available. 
+									</div>
+                                </div>
+								
+                                <div class="accordion__pane border-b border-gray-200 py-4"
+                                    style="text-align: center;margin: 0px auto;border-bottom: 5px solid #363655b5;">
+                                    <a href="javascript:;" class="accordion__pane__toggle font-medium block"
+                                        style="color: #051242; font-weight: 600;">Where does the TRX go?</a>
+                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed"
+                                        style="display: none;  color: #051242;">
+										97% of TRX that enters the daily Auction Lobby is pooled and distributed back out to Stakers.
+									</div>
+                                </div>
+								
+                                <div class="accordion__pane border-b border-gray-200 py-4"
+                                    style="text-align: center;margin: 0px auto;border-bottom: 5px solid #363655b5;">
+                                    <a href="javascript:;" class="accordion__pane__toggle font-medium block"
+                                        style="color: #051242; font-weight: 600;">What is staking?</a>
+                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed"
+                                        style="display: none;  color: #051242;">
+										You can stake your BUB
+                                        token for a fixed number of days to 
+										earn interest on them and get TRX dividends from the daily auction pool. 
+										Max stake time is 365 days. Every fifth day will earn a bonus amount of interest on staked BUB.
+										<br> 
+										At the end of every day a daily stake pool
+                                        of BUB Tokens will be calculated and it
+                                        will be shared and allocate to all the
+                                        open stakes between all the open stakes
+                                        based on their staked tokens amount
+                                        which will be available for user to
+                                        withdraw when the stake ends.									
+									</div>
+                                </div>
+
+                                <div class="accordion__pane border-b border-gray-200 py-4"
+                                    style="text-align: center;margin: 0px auto;border-bottom: 5px solid #363655b5;">
+                                    <a href="javascript:;" class="accordion__pane__toggle font-medium block"
+                                        style="color: #051242; font-weight: 600;">Do I get TRX dividends for staking?</a>
+                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed"
+                                        style="display: none;  color: #051242;">
+										Yes! The biggest benefit of Staking BUB is
+                                        TRX dividends. At the end of each day
+                                        a TRX dividends pool will be calculated
+                                        and allocated to all the stakers, distributed evenly
+                                        based on their stake amount. The TRX dividends pool comes from the daily
+                                        auction lobby total entry amount.
+									</div>
+                                </div>
+
+                                <div class="accordion__pane border-b border-gray-200 py-4"
+                                    style="text-align: center;margin: 0px auto;border-bottom: 5px solid #363655b5;">
+                                    <a href="javascript:;" class="accordion__pane__toggle font-medium block"
+                                        style="color: #051242; font-weight: 600;">How do I know if my stake has ended?</a>
+                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed"
+                                        style="display: none;  color: #051242;">
+										The button will say "collect" on your active stakes list, otherwise unfinished stakes will say "cancel".
+									</div>
+                                </div>
+
+                                <div class="accordion__pane border-b border-gray-200 py-4"
+                                    style="text-align: center;margin: 0px auto;border-bottom: 5px solid #363655b5;">
+                                    <a href="javascript:;" class="accordion__pane__toggle font-medium block"
+                                        style="color: #051242; font-weight: 600;">What if I end my stake early?</a>
+                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed"
+                                        style="display: none;  color: #051242;">
+										You will still get ALL TRX dividends. However you will be penalized BUB Tokens.
+
+									</div>
+                                </div>
+
+                                <div class="accordion__pane border-b border-gray-200 py-4"
+                                    style="text-align: center;margin: 0px auto;border-bottom: 5px solid #363655b5;">
+                                    <a href="javascript:;" class="accordion__pane__toggle font-medium block"
+                                        style="color: #051242; font-weight: 600;">How is dividends pool calculated?</a>
+                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed"
+                                        style="display: none;  color: #051242;">
+										97% of TRX that enters the daily Auction Lobby is pooled and distributed back out to Stakers.
+										The remaining 3% is collected as an owner share.
+
+									</div>
+                                </div>
+
+                                <div class="accordion__pane border-b border-gray-200 py-4"
+                                    style="text-align: center;margin: 0px auto;border-bottom: 5px solid #363655b5;">
+                                    <a href="javascript:;" class="accordion__pane__toggle font-medium block"
+                                        style="color: #051242; font-weight: 600;">When will I receive my TRX dividends?</a>
+                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed"
+                                        style="display: none;  color: #051242;">
+										When your stake ends, click "collect" and you will receive your
+                                        TRX dividends. You may also cancel a stake, doing so will still give you all of your TRX dividends.
+										However, returned BUB Tokens are penalized a % based on time left for early cancellations.
+									</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--FAQ END-->
+		<!--Contact Info-->	
+		<footer>
+				<div class="flex items-center justify-center"
+					style="border: 0;padding: 12px;">
+
+					<div class="contact-info">
+						<a href="https://t.me/BUBToken" target="blank">
+						<img src="../img/sm-telegram.png"></a>
+					</div >
+					<div class="contact-info" style="margin-left: 4px; margin-right: 4px;">
+						<a href="https://twitter.com/BUBtoken" target="blank">
+						<img src="../img/sm-twitter.png"></a>
+					</div>
+					<div class="contact-info">
+						<a href="mailto: BUBToken@gmail.com" target="blank">
+						<img src="../img/sm-email.png"></a>
+					</div>		
+				</div>			
+		</footer>
+		<!--End Contact Info-->
+    </div>
+
+				
+				
+				
+    <!-- END: Content -->
+    <!-- BEGIN: JS Assets-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script>
+        var web3 = new Web3();
+        web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"))
+    </script>    <script src="./shared/header.js"></script>
+    <script src="./js/core.js"></script>
+    <script src="./js/refer.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.touchSwipe.min.js"></script>
+
+    <!-- END: JS Assets-->
+</body>
+
+</html>
