@@ -1,0 +1,152 @@
+.table th {
+    font-weight: 500;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: center;
+}
+
+.table td {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: center;
+    width: 1px;
+}
+
+.tb-ds {
+    max-width: 5.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.tb-nactive-row {
+    background: #6e6a0d;
+}
+.tb-active-row {
+    background: #a39e0a;
+}
+
+.tb-active-row-2 {
+    background-color: #f7fafc;
+}
+
+.bg-theme-100 {
+    background-color: #8bc34a;
+}
+
+.bg-theme-101 {
+    background-color: #ff5822;
+}
+
+
+  body {
+	  background: url(../img/bg.jpg) center top !important;
+  }
+
+
+input {
+    background: #393822;
+    
+}
+
+.input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #5a697c59 !important;
+    opacity: 1;
+    /* Firefox */
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.stake-btn:hover {
+    width: 98% !important;
+}
+
+.transfer-btn:hover {
+    width: 45% !important;
+}
+
+.box-header {
+    border-bottom: 3px solid #aa8c2c !important;
+    background: #FFD700 !important;
+    border-radius: 9px;
+    box-shadow: 0px 4px 18px #8a7b2d !important;
+}
+
+.box-body {
+    background: #aa8c2c !important;
+    border-radius: 9px !important;
+}
+
+.row-body {
+    border: 0px !important;
+}
+
+.item-slm {
+    background-color: #8a7b2d !important;
+    color: #aa8c2c !important;
+}
+
+.item-sln {
+    background-color: #8a7b2d !important;
+    color: #aa8c2c !important;
+}
+
+.ro-head {
+    background: #aa8c2c !important;
+    border: 0px !important;
+	color: #051242;
+}
+
+.progress-b {
+    background: #26263c94;
+    height: 7px;
+    border-radius: 50px;
+    margin: 7px 8px 0px 7px;
+    width: 90%;
+}
+
+.progress-bn {
+    height: 7px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, rgba(103, 32, 201, 1) 0%, rgba(206, 45, 222, 1) 100%);
+    box-shadow: 0px 0px 8px #8424cdb5
+}
+
+.highchart-credits {
+	
+	background: #2e2e49;
+	color: #2e2e49;
+	
+
+}
+::placeholder {
+  color: c5d6f3;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: c5d6f3;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: c5d6f3;
+}

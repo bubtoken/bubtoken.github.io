@@ -1,0 +1,37 @@
+.floating {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-top: 5px;
+}
+
+@keyframes floating {
+    from {
+        transform: translate(0, 0px);
+    }
+
+    65% {
+        transform: translate(0, 15px);
+    }
+
+    to {
+        transform: translate(0, -0px);
+    }
+}
+
+.box-c-1 {
+    box-shadow: 0 4px 8px 0 rgba(19, 37, 71, .1);
+}
+
+.sm-btn {
+    opacity: 0.6;
+    display: inline-block;
+    width: 40px;
+    margin-right: 7px;
+    float: right;
+}
+
+.sm-btn:hover {
+    opacity: 1
+}
