@@ -1,6 +1,5 @@
 // state = 1: == open to enter || state = 2: ready to collect || state = 3: == ended
 let lobbies = []
-var dayOffset = 43
 	
 function run_Auction() {
 	if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))){
@@ -97,7 +96,7 @@ let clcD1 = true
 
 function getPastLobbies() {
     $('.holder-list')[0].innerHTML = ""
-    for (var i = currentDay; i > dayOffset; i--) {
+    for (var i = currentDay; i > 1; i--) {
 
         let enBtn =
             `
@@ -313,7 +312,7 @@ function mobileAuctionAdjuster(){
 
 function getPastLobbiesMobile() {
     $('.holder-list')[0].innerHTML = ""
-    for (var i = currentDay; i > dayOffset; i--) {
+    for (var i = currentDay; i > 1; i--) {
         let enBtn =
             `
         <div style="">
