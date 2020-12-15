@@ -89,8 +89,9 @@ setInterval(() => {
 }, 1000 * 100)
 
 setInterval(() => {
-    if($('.active-stake-loading')[0].innerHTML == "Loading...")
-		getDaysData()
+    if($('.active-stake-loading')[0] != undefined)
+		if($('.active-stake-loading')[0].innerHTML == "Loading...")
+			getDaysData()
 }, 1000)
 
 function stakeChangeDays() {
@@ -752,12 +753,10 @@ function checkMobile(){
 		if( parseInt( $('.mobile-stake-resize')[0].style.fontSize ) != 8 && $('.mobile-stake-resize').length > 0 ){
  			mobileActiveStakeAdjuster()
 		}
-		if( parseInt( $('.ended-stake-info-6')[0].style.fontSize ) != 8 && $('.ended-stake-info-6').length > 0 ){
-            mobileEndedStakeAdjuster()
-		}
 }
 
 setInterval(() => {
 	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 		checkMobile()
 }, 250)
+
