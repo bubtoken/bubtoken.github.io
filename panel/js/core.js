@@ -2,7 +2,7 @@ const DESI = 100000000
 const SUN = 1000000
 const zeroAddress = "TTCQr5cP1Nw1qrQHF5D1M1cXxpMeDXZMX8"
 var mainContract, currentDay
-var contractAddress = "TGAqHu3zquURddmGPoN25rh3ntPz3bjP63"
+var contractAddress = "TDbygTtZNsS1xsSNKcdsz3h45ma8bXwv3F"
 var telegram = "https://t.me/BubbleTokenGroup"
 var twitter = "https://twitter.com/BubbleToken"
 var trcwebsite = "https://bubtoken.github.io/"
