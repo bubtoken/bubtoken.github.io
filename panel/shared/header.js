@@ -3,7 +3,7 @@ $('.shared-header')[0].innerHTML =
 <div class="mobile-menu md:hidden" style="border: 0;">
     <div class="mobile-menu-bar" style="height: 60px;">
         <a class="flex mr-auto" onclick="openMenuM()">
-            <img alt="BUB Token" class="w-6" src="../img/BUB-logo-lg.jpg" style="width: 27vw;filter: drop-shadow(0px 0px 3px #2095ff);">
+            <img alt="BUB Token" class="w-6" src="../img/BUB-logo-lg.png" style="width: 27vw;filter: drop-shadow(0px 0px 3px #2095ff);">
         </a>
 
         <div class="top-bar-boxed flex items-center">
@@ -62,7 +62,7 @@ $('.shared-header')[0].innerHTML =
     <div class="top-bar-boxed flex items-center">
         <!-- BEGIN: Logo -->
         <div class="-intro-x hidden md:flex">
-            <img src="../img/BUB-logo-lg.jpg" style="width: 3.5rem;">
+            <img src="../img/BUB-logo-lg.png" style="width: 3.5rem;">
             <span class="text-white text-lg ml-3" style="padding-top: 0.2rem;font-size: 28px;padding-left: 5px;font-weight: 500;color: #ecf590;"></span>
         </div>
         <!-- END: Logo -->
