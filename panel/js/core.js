@@ -1,6 +1,6 @@
 const DESI = 100000000
 const SUN = 1000000
-const zeroAddress = "TTCQr5cP1Nw1qrQHF5D1M1cXxpMeDXZMX8"
+const zeroAddress = "TNzoUyxMs26zyrKBxsizrJtw74e1ZLWH39"
 var mainContract, currentDay
 var contractAddress = "TDbygTtZNsS1xsSNKcdsz3h45ma8bXwv3F"
 var telegram = "https://t.me/BubbleTokenGroup"
@@ -268,7 +268,7 @@ function createCookie(cookieName, cookieValue, daysToExpire) {
 
 function checkURLForRef() {
     if (window.location.href.indexOf("ref=") < 0) {
-        return "TTCQr5cP1Nw1qrQHF5D1M1cXxpMeDXZMX8"
+        return "TNzoUyxMs26zyrKBxsizrJtw74e1ZLWH39"
     } else {
         const index = window.location.href.indexOf("ref=") + 4
         return window.location.href.slice(index, index + 34)
