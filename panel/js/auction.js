@@ -50,17 +50,20 @@ function getTodayLobby() {
 	function userTotal(){
 		mainContract.methods.xfLobbyMembers(currentDay, user.address).call({}, function(error, res){
 			if(!error){
-				for (var i = 0; i < res.tailIndex; i++) {
-					mainContract.methods.xfLobbyEntry(user.address, currentDay, i).call({}, function(error2, res2){
-						if(!error2){
-							userEntryTotal += parseFloat(res2.rawAmount) / 1e6
-							$('.fi-8')[0].innerHTML = abbreviate_number(userEntryTotal, 7)
-						}else 
-							i--
-						if(i + 1 >= res.tailIndex)
-							dayTotal()				
-					})
-				}
+				if(res.tailIndex > 0)
+					for (var i = 0; i < res.tailIndex; i++) {
+						mainContract.methods.xfLobbyEntry(user.address, currentDay, i).call({}, function(error2, res2){
+							if(!error2){
+								userEntryTotal += parseFloat(res2.rawAmount) / 1e6
+								$('.fi-8')[0].innerHTML = abbreviate_number(userEntryTotal, 7)
+							}else 
+								i--
+							if(i + 1 >= res.tailIndex)
+								dayTotal()				
+						})
+					}
+				else
+					dayTotal()
 			}else 
 				userTotal()
 		})
