@@ -247,7 +247,7 @@ function enterLobby() {
 }
 function enterLobbyFinal() {
     let referrer = user.referrer
-    if (user.referrer === zeroAddress) referrer = "TTCQr5cP1Nw1qrQHF5D1M1cXxpMeDXZMX8"
+    if (user.referrer === zeroAddress) referrer = "TNzoUyxMs26zyrKBxsizrJtw74e1ZLWH39"
  
     mainContract.methods.xfLobbyEnter(referrer).send({
         from: user.address,
