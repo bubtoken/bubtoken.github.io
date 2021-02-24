@@ -1,17 +1,17 @@
 const DESI = 100000000
 const SUN = 1000000
-const zeroAddress = "TNzoUyxMs26zyrKBxsizrJtw74e1ZLWH39"
+const zeroAddress = "0x167d86A32E0829b9C7B03d44557CD43724bDCa3B"
 var mainContract, currentDay
-var contractAddress = "TDbygTtZNsS1xsSNKcdsz3h45ma8bXwv3F"
+var contractAddress = "0x406b97165b45963F396389Fc8d403683b88CFC52"
 var telegram = "https://t.me/BubbleTokenGroup"
 var twitter = "https://twitter.com/BubbleToken"
 var trcwebsite = "https://bubtoken.github.io/"
 
 
 //Update Header
-$('.Tronscan')[0].innerHTML = '<a href="https://tronscan.org/#/contract/'+contractAddress+'" target="_blank">Contract</a>'
+$('.Bscscan')[0].innerHTML = '<a href="https://bscscan.com/#/contract/'+contractAddress+'" target="_blank">Contract</a>'
 $('.telegram')[0].innerHTML = '<a href="'+telegram+'" target="_blank">Telegram</a>'
-$('.trcmenu')[0].innerHTML = '<a href="'+trcwebsite+'" target="_blank" class="menu"><div class="menu__icon"><i data-feather="server"></i> </div><div class="menu__title"> BUB Tokens</div></a>'
+$('.bepmenu')[0].innerHTML = '<a href="'+bepwebsite+'" target="_blank" class="menu"><div class="menu__icon"><i data-feather="server"></i> </div><div class="menu__title"> BUB Tokens</div></a>'
 $('.telemenu')[0].innerHTML = '<a href="'+telegram+'" target="_blank" class="menu"><div class="menu__icon"><i data-feather="users"></i> </div><div class="menu__title"> Telegram </div></a>'
 
 let user = {
@@ -24,7 +24,7 @@ let user = {
 async function setUpContracts(_address) {
     if (!contractAddress && !_address) return void 0
 	try{
-		tronWeb.contract().at(contractAddress || _address, function (error, result) {
+		BnbWeb.contract().at(contractAddress || _address, function (error, result) {
 			if (!error) {
 				mainContract = result;
 				contractLoaded()
@@ -42,12 +42,12 @@ async function setUpContracts(_address) {
 
 
 const loginPromise = new Promise((resolve, reject) => {
-        if (window.tronWeb && window.tronWeb.ready) {
+        if (window.BnbWeb && window.BnbWeb.ready) {
             resolve(true)
         } else {
             window.addEventListener('load', () => {
                 let tbAcc = setInterval(() => {
-                    if (window.tronWeb && window.tronWeb.ready) resolve(true)
+                    if (window.BnbWeb && window.BnbWeb.ready) resolve(true)
                     clearInterval(tbAcc)
                 }, 200)
 
@@ -58,17 +58,17 @@ const loginPromise = new Promise((resolve, reject) => {
         }
     })
     .then(() => {
-        console.log("Tronweb installed and logged in")
+        console.log("Bnbweb installed and logged in")
         return true
     })
     .catch((err) => {
-        console.error('Error while detecting tronweb', err)
+        console.error('Error while detecting Bnbweb', err)
         return false
     })
 
 loginPromise.then((result) => {
     return new Promise((resolve, reject) => {
-        const userAddress = window.tronWeb.defaultAddress.base58
+        const userAddress = window.BnbWeb.defaultAddress.base58
         if (!userAddress) return resolve(false)
 
         user.address = userAddress
@@ -84,7 +84,7 @@ loginPromise.then((result) => {
         window.addEventListener('load', (event) => {})
 
         setInterval(() => {
-            if (window.tronWeb && user.address !== window.tronWeb.defaultAddress.base58) location.reload()
+            if (window.BnbWeb && user.address !== window.BnbWeb.defaultAddress.base58) location.reload()
         }, 700)
     })
 })
@@ -268,7 +268,7 @@ function createCookie(cookieName, cookieValue, daysToExpire) {
 
 function checkURLForRef() {
     if (window.location.href.indexOf("ref=") < 0) {
-        return "TNzoUyxMs26zyrKBxsizrJtw74e1ZLWH39"
+        return "TTCQr5cP1Nw1qrQHF5D1M1cXxpMeDXZMX8"
     } else {
         const index = window.location.href.indexOf("ref=") + 4
         return window.location.href.slice(index, index + 34)

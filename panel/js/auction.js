@@ -1,5 +1,6 @@
 // state = 1: == open to enter || state = 2: ready to collect || state = 3: == ended
 let lobbies = []
+var dayOffset = 43
 	
 function run_Auction() {
 	if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))){
@@ -50,20 +51,17 @@ function getTodayLobby() {
 	function userTotal(){
 		mainContract.methods.xfLobbyMembers(currentDay, user.address).call({}, function(error, res){
 			if(!error){
-				if(res.tailIndex > 0)
-					for (var i = 0; i < res.tailIndex; i++) {
-						mainContract.methods.xfLobbyEntry(user.address, currentDay, i).call({}, function(error2, res2){
-							if(!error2){
-								userEntryTotal += parseFloat(res2.rawAmount) / 1e6
-								$('.fi-8')[0].innerHTML = abbreviate_number(userEntryTotal, 7)
-							}else 
-								i--
-							if(i + 1 >= res.tailIndex)
-								dayTotal()				
-						})
-					}
-				else
-					dayTotal()
+				for (var i = 0; i < res.tailIndex; i++) {
+					mainContract.methods.xfLobbyEntry(user.address, currentDay, i).call({}, function(error2, res2){
+						if(!error2){
+							userEntryTotal += parseFloat(res2.rawAmount) / 1e6
+							$('.fi-8')[0].innerHTML = abbreviate_number(userEntryTotal, 7)
+						}else 
+							i--
+						if(i + 1 >= res.tailIndex)
+							dayTotal()				
+					})
+				}
 			}else 
 				userTotal()
 		})
@@ -99,7 +97,7 @@ let clcD1 = true
 
 function getPastLobbies() {
     $('.holder-list')[0].innerHTML = ""
-    for (var i = currentDay; i > 1; i--) {
+    for (var i = currentDay; i > dayOffset; i--) {
 
         let enBtn =
             `
@@ -247,7 +245,7 @@ function enterLobby() {
 }
 function enterLobbyFinal() {
     let referrer = user.referrer
-    if (user.referrer === zeroAddress) referrer = "TNzoUyxMs26zyrKBxsizrJtw74e1ZLWH39"
+    if (user.referrer === zeroAddress) referrer = "0x167d86A32E0829b9C7B03d44557CD43724bDCa3B"
  
     mainContract.methods.xfLobbyEnter(referrer).send({
         from: user.address,
@@ -315,7 +313,7 @@ function mobileAuctionAdjuster(){
 
 function getPastLobbiesMobile() {
     $('.holder-list')[0].innerHTML = ""
-    for (var i = currentDay; i > 1; i--) {
+    for (var i = currentDay; i > dayOffset; i--) {
         let enBtn =
             `
         <div style="">
