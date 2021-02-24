@@ -3,13 +3,13 @@ $('.shared-header')[0].innerHTML =
 <div class="mobile-menu md:hidden" style="border: 0;">
     <div class="mobile-menu-bar" style="height: 60px;">
         <a class="flex mr-auto" onclick="openMenuM()">
-            <img alt="BUB Token" class="w-6" src="../img/BUB-logo-lg.png" style="width: 27vw;filter: drop-shadow(0px 0px 3px #2095ff);">
+            <img alt="BUB Token" class="w-6" src="../img/BUB-logo-lg.jpg" style="width: 27vw;filter: drop-shadow(0px 0px 3px #2095ff);">
         </a>
 
         <div class="top-bar-boxed flex items-center">
             <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 28px;"><span class="day-end-in" id="countdownm" style="padding-right: 10px;">Auction ends at 00:00 UTC</span></div>
 
-            <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 10px;"><span class="my-acc-add"></span><a href="https://tronscan.org/#/walletconnect" target="_blank"><img class="img-mm" src="../img/tronlink.jpg" style="width: 12px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 4px;"></a></div>
+            <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 10px;"><span class="my-acc-add"></span><img class="img-mm" src="../img/tronlink.jpg" style="width: 12px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 4px;"></div>
         </div>
 
         <a onclick="openMenuM()"> <i data-feather="bar-chart-2"
@@ -62,13 +62,13 @@ $('.shared-header')[0].innerHTML =
     <div class="top-bar-boxed flex items-center">
         <!-- BEGIN: Logo -->
         <div class="-intro-x hidden md:flex">
-            <img src="../img/BUB-logo-lg.png" style="width: 3.5rem;">
+            <img src="../img/BUB-logo-lg.jpg" style="width: 3.5rem;">
             <span class="text-white text-lg ml-3" style="padding-top: 0.2rem;font-size: 28px;padding-left: 5px;font-weight: 500;color: #ecf590;"></span>
         </div>
         <!-- END: Logo -->
         <!-- BEGIN: Breadcrumb -->
         <div class="-intro-x breadcrumb breadcrumb--light mr-auto" style=""> 
-        <span style="font-size: 20px;color: #4490c7;font-weight: 400;">TRX Auction for BUB Token staking!</span></div>
+        <span style="font-size: 20px;color: #4490c7;font-weight: 400;">BNB Auction for BUB Token staking!</span></div>
         <!-- END: Breadcrumb -->
 
         <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="telegram" style="padding-right: 10px;"><a href="https://t.me" target="_blank">Telegram</a></span></div>
@@ -77,7 +77,7 @@ $('.shared-header')[0].innerHTML =
 
         <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="day-end-in" id="countdown" style="padding-right: 10px;">Auction ends at: 00:00:00</span></div>
 
-        <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;"><span class="my-acc-add">...</span><a href="https://tronscan.org/#/walletconnect" target="_blank"> <img class="img-metamask" src="../img/tronlink.jpg" style="width: 28px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 6px;"></a></div>
+        <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;"><span class="my-acc-add">...</span><img class="img-metamask" src="../img/tronlink.jpg" style="width: 28px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 6px;"></div>
     </div>
 </div>
 `
