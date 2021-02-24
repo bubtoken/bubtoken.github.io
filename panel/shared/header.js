@@ -9,7 +9,7 @@ $('.shared-header')[0].innerHTML =
         <div class="top-bar-boxed flex items-center">
             <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 28px;"><span class="day-end-in" id="countdownm" style="padding-right: 10px;">Auction ends at 00:00 UTC</span></div>
 
-            <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 10px;"><span class="my-acc-add"></span><img class="img-mm" src="../img/tronlink.jpg" style="width: 12px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 4px;"></div>
+            <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 10px;"><span class="my-acc-add"></span><img class="img-mm" src="../img/bscscan.jpg" style="width: 12px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 4px;"></div>
         </div>
 
         <a onclick="openMenuM()"> <i data-feather="bar-chart-2"
