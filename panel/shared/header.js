@@ -71,13 +71,13 @@ $('.shared-header')[0].innerHTML =
         <span style="font-size: 20px;color: #4490c7;font-weight: 400;">BNB Auction for BUB Token staking!</span></div>
         <!-- END: Breadcrumb -->
 
-        <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="telegram" style="padding-right: 10px;"><a href="https://t.me" target="_blank">Telegram</a></span></div>
+        <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="telegram" style="padding-right: 10px;"><a href="https://t.me/BubbleTokenGroup" target="_blank">Telegram</a></span></div>
 
         <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="Tronscan" style="padding-right: 10px;"><a href="https://testnet.bscscan.com/token/0x406b97165b45963F396389Fc8d403683b88CFC52" target="_blank">Bscscan</a></span></div>
 
         <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="day-end-in" id="countdown" style="padding-right: 10px;">Auction ends at: 00:00:00</span></div>
 
-        <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;"><span class="my-acc-add">...</span><img class="img-metamask" src="../img/tronlink.jpg" style="width: 28px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 6px;"></div>
+        <div style="height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;"><span class="my-acc-add">...</span><img class="img-metamask" src="../img/bscscan.jpg" style="width: 28px;margin-top: -3.7px;margin: 0px 1px 0px 1px;float: right;border-radius: 6px;"></div>
     </div>
 </div>
 `
