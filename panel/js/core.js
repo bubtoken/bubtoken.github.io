@@ -9,7 +9,7 @@ var trcwebsite = "https://bubtoken.github.io/"
 
 
 //Update Header
-$('.Bscscan')[0].innerHTML = '<a href="https://bscscan.com/token/'+contractAddress+'" target="_blank">Contract</a>'
+$('.tronscan')[0].innerHTML = '<a href="https://bscscan.com/token/'+contractAddress+'" target="_blank">Contract</a>'
 $('.telegram')[0].innerHTML = '<a href="'+telegram+'" target="_blank">Telegram</a>'
 $('.bepmenu')[0].innerHTML = '<a href="'+bepwebsite+'" target="_blank" class="menu"><div class="menu__icon"><i data-feather="server"></i> </div><div class="menu__title"> BUB Tokens</div></a>'
 $('.telemenu')[0].innerHTML = '<a href="'+telegram+'" target="_blank" class="menu"><div class="menu__icon"><i data-feather="users"></i> </div><div class="menu__title"> Telegram </div></a>'
