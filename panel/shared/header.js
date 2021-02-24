@@ -73,7 +73,7 @@ $('.shared-header')[0].innerHTML =
 
         <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="telegram" style="padding-right: 10px;"><a href="https://t.me" target="_blank">Telegram</a></span></div>
 
-        <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="Tronscan" style="padding-right: 10px;"><a href="https://bscscan.com/" target="_blank">Bscscan</a></span></div>
+        <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="Tronscan" style="padding-right: 10px;"><a href="https://testnet.bscscan.com/token/0x406b97165b45963F396389Fc8d403683b88CFC52" target="_blank">Bscscan</a></span></div>
 
         <div style="*/height: 38px;border-radius: 6px;padding: 2px 0px 0px 10px;border: 3px solid #42527178;color: #4490c7;font-size: 18px;font-weight: 500;margin-right: 20px;"><span class="day-end-in" id="countdown" style="padding-right: 10px;">Auction ends at: 00:00:00</span></div>
 
