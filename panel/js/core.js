@@ -1,93 +1,129 @@
-const DESI = 100000000
-const SUN = 1000000
-const zeroAddress = "0x167d86A32E0829b9C7B03d44557CD43724bDCa3B"
-var mainContract, currentDay
-var contractAddress = "0x406b97165b45963F396389Fc8d403683b88CFC52"
+const abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"amount","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"sender","type":"address"},{"name":"recipient","type":"address"},{"name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"uint256"}],"name":"stakeLists","outputs":[{"name":"stakeId","type":"uint40"},{"name":"stakedSuns","type":"uint72"},{"name":"stakeShares","type":"uint72"},{"name":"lockedDay","type":"uint16"},{"name":"stakedDays","type":"uint16"},{"name":"unlockedDay","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"memberAddr","type":"address"},{"name":"enterDay","type":"uint256"},{"name":"entryIndex","type":"uint256"}],"name":"xfLobbyEntry","outputs":[{"name":"rawAmount","type":"uint256"},{"name":"referrerAddr","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"stakerAddr","type":"address"}],"name":"stakeCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"stakeIndex","type":"uint256"},{"name":"stakeIdParam","type":"uint40"}],"name":"stakeEnd","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"allocatedSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"},{"name":"","type":"address"}],"name":"xfLobbyMembers","outputs":[{"name":"headIndex","type":"uint40"},{"name":"tailIndex","type":"uint40"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"memberAddr","type":"address"}],"name":"xfLobbyPendingDays","outputs":[{"name":"words","type":"uint256[2]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newStakedSuns","type":"uint256"},{"name":"newStakedDays","type":"uint256"}],"name":"stakeStart","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"currentDay","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"stakerAddr","type":"address"},{"name":"stakeIndex","type":"uint256"},{"name":"stakeIdParam","type":"uint40"}],"name":"stakeGoodAccounting","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"beginDay","type":"uint256"},{"name":"endDay","type":"uint256"}],"name":"dailyDataRange","outputs":[{"name":"_dayStakeSharesTotal","type":"uint256[]"},{"name":"_dayPayoutTotal","type":"uint256[]"},{"name":"_dayDividends","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"account","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"xfLobby","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"beforeDay","type":"uint256"}],"name":"dailyDataUpdate","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"dailyData","outputs":[{"name":"dayPayoutTotal","type":"uint72"},{"name":"dayDividends","type":"uint256"},{"name":"dayStakeSharesTotal","type":"uint72"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"recipient","type":"address"},{"name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"globals","outputs":[{"name":"lockedSunsTotal","type":"uint72"},{"name":"nextStakeSharesTotal","type":"uint72"},{"name":"shareRate","type":"uint40"},{"name":"stakePenaltyTotal","type":"uint72"},{"name":"dailyDataCount","type":"uint16"},{"name":"stakeSharesTotal","type":"uint72"},{"name":"latestStakeId","type":"uint40"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"enterDay","type":"uint256"},{"name":"count","type":"uint256"}],"name":"xfLobbyExit","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"referrerAddr","type":"address"}],"name":"xfLobbyEnter","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"xfFlush","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"globalInfo","outputs":[{"name":"","type":"uint256[10]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"beginDay","type":"uint256"},{"name":"endDay","type":"uint256"}],"name":"xfLobbyRange","outputs":[{"name":"list","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"timestamp","type":"uint256"},{"indexed":false,"name":"enterDay","type":"uint256"},{"indexed":true,"name":"entryIndex","type":"uint256"},{"indexed":true,"name":"rawAmount","type":"uint256"}],"name":"XfLobbyEnter","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"timestamp","type":"uint256"},{"indexed":false,"name":"enterDay","type":"uint256"},{"indexed":true,"name":"entryIndex","type":"uint256"},{"indexed":true,"name":"xfAmount","type":"uint256"},{"indexed":true,"name":"referrerAddr","type":"address"}],"name":"XfLobbyExit","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"updaterAddr","type":"address"},{"indexed":false,"name":"timestamp","type":"uint256"},{"indexed":false,"name":"beginDay","type":"uint256"},{"indexed":false,"name":"endDay","type":"uint256"}],"name":"DailyDataUpdate","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"stakeId","type":"uint40"},{"indexed":true,"name":"stakerAddr","type":"address"},{"indexed":false,"name":"stakedSuns","type":"uint256"},{"indexed":false,"name":"stakeShares","type":"uint256"},{"indexed":false,"name":"stakedDays","type":"uint256"}],"name":"StakeStart","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"stakeId","type":"uint40"},{"indexed":true,"name":"stakerAddr","type":"address"},{"indexed":true,"name":"senderAddr","type":"address"},{"indexed":false,"name":"stakedSuns","type":"uint256"},{"indexed":false,"name":"stakeShares","type":"uint256"},{"indexed":false,"name":"payout","type":"uint256"},{"indexed":false,"name":"penalty","type":"uint256"}],"name":"StakeGoodAccounting","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"stakeId","type":"uint40"},{"indexed":false,"name":"prevUnlocked","type":"uint40"},{"indexed":true,"name":"stakerAddr","type":"address"},{"indexed":false,"name":"lockedDay","type":"uint256"},{"indexed":false,"name":"servedDays","type":"uint256"},{"indexed":false,"name":"stakedSuns","type":"uint256"},{"indexed":false,"name":"stakeShares","type":"uint256"},{"indexed":false,"name":"dividends","type":"uint256"},{"indexed":false,"name":"payout","type":"uint256"},{"indexed":false,"name":"penalty","type":"uint256"},{"indexed":false,"name":"stakeReturn","type":"uint256"}],"name":"StakeEnd","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"stakeId","type":"uint40"},{"indexed":false,"name":"timestamp","type":"uint256"},{"indexed":false,"name":"newShareRate","type":"uint256"}],"name":"ShareRateChange","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}]
+
+const DESI = 1e8
+const SUN = 1e18
+const zeroAddress = "0x0000000000000000000000000000000000000000"
+var mainContract = undefined
+var currentDay = undefined
+var contractAddress = "0xae695EF4ded8259DEAF22DC4e5982b531B659B58"
 var telegram = "https://t.me/BubbleTokenGroup"
 var twitter = "https://twitter.com/BubbleToken"
 var trcwebsite = "https://bubtoken.github.io/"
 
 
 //Update Header
-$('.tronscan')[0].innerHTML = '<a href="https://bscscan.com/token/'+contractAddress+'" target="_blank">Contract</a>'
+$('.Tronscan')[0].innerHTML = '<a href="https://bscscan.org/#/contract/'+contractAddress+'" target="_blank">Contract</a>'
 $('.telegram')[0].innerHTML = '<a href="'+telegram+'" target="_blank">Telegram</a>'
-$('.bepmenu')[0].innerHTML = '<a href="'+bepwebsite+'" target="_blank" class="menu"><div class="menu__icon"><i data-feather="server"></i> </div><div class="menu__title"> BUB Tokens</div></a>'
+$('.trcmenu')[0].innerHTML = '<a href="'+trcwebsite+'" target="_blank" class="menu"><div class="menu__icon"><i data-feather="server"></i> </div><div class="menu__title"> BUB Tokens</div></a>'
 $('.telemenu')[0].innerHTML = '<a href="'+telegram+'" target="_blank" class="menu"><div class="menu__icon"><i data-feather="users"></i> </div><div class="menu__title"> Telegram </div></a>'
 
 let user = {
-    address: void 0,
-    balance: void 0,
+    address: undefined,
+    balance: undefined,
     referrer: zeroAddress
 }
+$(document).ready(function() {
+	beginLogins()
+	createCookie()
+})
 
-
-async function setUpContracts(_address) {
-    if (!contractAddress && !_address) return void 0
-	try{
-		BnbWeb.contract().at(contractAddress || _address, function (error, result) {
-			if (!error) {
-				mainContract = result;
-				contractLoaded()
-				console.log("Contract Loaded")
-			} else{
-				console.error(error);
-				setUpContracts()
-			}
-		});
-	}catch(e){
-		console.log(e)
-		setUpContracts()
-	}
+let attempts = 0
+async function beginLogins(){
+	await userLoginAttempt()
+	setTimeout(() => {
+		if(user.address == undefined && attempts < 3){
+			setTimeout(() => {
+				if(user.address == undefined && attempts < 3){
+					attempts++
+					beginLogins()
+				}
+			}, 300)
+		}
+	}, 300)
 }
 
-
-const loginPromise = new Promise((resolve, reject) => {
-        if (window.BnbWeb && window.BnbWeb.ready) {
-            resolve(true)
-        } else {
-            window.addEventListener('load', () => {
-                let tbAcc = setInterval(() => {
-                    if (window.BnbWeb && window.BnbWeb.ready) resolve(true)
-                    clearInterval(tbAcc)
-                }, 200)
-
-                setTimeout(() => {
-                    clearInterval(tbAcc)
-                }, 10000)
-            })
-        }
-    })
-    .then(() => {
-        console.log("Bnbweb installed and logged in")
-        return true
-    })
-    .catch((err) => {
-        console.error('Error while detecting Bnbweb', err)
-        return false
-    })
-
-loginPromise.then((result) => {
-    return new Promise((resolve, reject) => {
-        const userAddress = window.BnbWeb.defaultAddress.base58
-        if (!userAddress) return resolve(false)
-
-        user.address = userAddress
-        updateHeadAddress()
-		try{
-			setUpContracts()
-		}catch(e){
-			setUpContracts()
+async function userLoginAttempt(){
+	await window.addEventListener('load', function () {
+		// Load WEB3
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+			console.log("conn")
+			// Or connect to a node
+		} else {
+			web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8080"));
 		}
-        if ($('.ref-link')[0]) 
-			$('.ref-link')[0].value = "https://BUBtoken.github.io/panel/auction.html?ref=" + user.address
 
-        window.addEventListener('load', (event) => {})
+		window.ethereum.enable()
+		window.eth_requestAccounts
 
-        setInterval(() => {
-            if (window.BnbWeb && user.address !== window.BnbWeb.defaultAddress.base58) location.reload()
-        }, 700)
-    })
-})
+		const loginPromise = new Promise((resolve, reject) => {
+			if (window.web3) {
+				resolve(true)
+			} else {
+				window.addEventListener('load', () => {
+					let tbAcc = setInterval(() => {
+						if (window.ethereum) resolve(true)
+						clearInterval(tbAcc)
+					}, 200)
+
+					setTimeout(() => {
+						clearInterval(tbAcc)
+					}, 10000)
+				})
+			}
+		})
+		.then(() => {
+			console.log("web3 logged in")
+			return true
+		})
+		.catch((err) => {
+			console.error('Error while detecting web3', err)
+			return false
+		})
+
+		loginPromise.then((result) => {
+			return new Promise(async (resolve, reject) => {
+
+				await web3.eth.getAccounts().then(function (result) {
+					user.address = result[0]
+					updateHeadAddress()
+					console.log("User " + user.address + " connected.")
+					initContract(window.web3.eth)
+
+					if ($('.ref-link')[0]) 
+						$('.ref-link')[0].value = "https://BUBtoken.github.io/panel/auction.html?ref=" + user.address
+				})
+
+					setInterval(async () => {
+						web3.eth.getAccounts().then(function (result) {
+							if (window.web3 && user.address !== result[0]) location.reload()
+						})
+					}, 700)
+					
+			})
+		})
+	})
+}
+
+async function initContract(BinanceChain){
+	try{
+		await (mainContract = new BinanceChain.Contract(abi, contractAddress))
+		if(mainContract != undefined){
+			console.log("BNES "+contractAddress+" loaded!")
+			contractLoaded()
+		}else{
+			console.error(error)
+			setTimeout(() => {
+				initContract(BinanceChain)
+			}, 250)
+		}
+	}catch(e){
+		console.log(e)
+		setTimeout(() => {
+			initContract(BinanceChain)
+		}, 250)
+	}
+}
 
 function updateHeadAddress() {
     let p2 = user.address.slice(34 - 3)
@@ -116,12 +152,8 @@ function contractLoaded() {
     }, 100)
 }
 
-function getCurrentDay() {
-    mainContract.methods.currentDay().call({
-        shouldPollResponse: true
-    }).then(res => {
-        currentDay = parseInt(res)
-    })
+async function getCurrentDay() {
+    currentDay = parseInt( (await mainContract.methods.currentDay().call()))
 
     setTimeout(() => {
         getCurrentDay()
@@ -129,13 +161,17 @@ function getCurrentDay() {
 }
 
 // get balance of user and set it on the header
-function getUserBalance() {
-    mainContract.methods.balanceOf(user.address).call({
-        shouldPollResponse: false
-    }).then(res => {
-        user.balance = res
-        if ($('.your-token-balance-hd')[0]) $('.your-token-balance-hd')[0].innerHTML = "Your BUB balance: " + (user.balance / 100000000).toLocaleString()
-    })
+async function getUserBalance() {
+	if(user.address != undefined && mainContract != undefined){
+
+		user.balance = parseInt(await mainContract.methods.balanceOf(user.address).call()) / 1e8
+		if($('.your-token-balance-hd')[0])
+			$('.your-token-balance-hd')[0].innerHTML = "Your BNES balance: " + (user.balance).toLocaleString()
+
+	}else
+		setTimeout(() => {
+			getUserBalance()
+		}, 2000)
 }
 
 function abbreviate_number(_num, fixed) {
@@ -234,53 +270,46 @@ function displayAlert(type, text, duration) {
     }, duration + 2000 || 5000)
 }
 
+//COOKIE CREATION
+function createCookie() {
+    if (window.location.href.indexOf("ref=") < 0) {
+        return zeroAddress
+    }else{
+        const index = window.location.href.indexOf("ref=") + 4
+		let ref = window.location.href.slice(index, index + 42)
+		if(window.localStorage) {
+			localStorage.setItem('referrerAddress', ref);
+		}
+
+		let date = new Date();
+		date.setTime(date.getTime() + (10000 * 24 * 60 * 60 * 1000))
+		document.cookie = "ref=" + ref + "; expires=" + date.toGMTString()
+	}
+	accessCookie("ref")
+}
+
+//ACCESS COOKIE
 function accessCookie(cookieName) {
     let name = cookieName + "=";
+	let accessedCookie
     let allCookieArray = document.cookie.split(';');
     for (let i = 0; i < allCookieArray.length; i++) {
         let temp = allCookieArray[i].trim();
-        if (temp.indexOf(name) == 0)
-            return temp.substring(name.length, temp.length);
+        if (temp.indexOf(name) == 0){
+			accessedCookie = temp.substring(name.length, temp.length)
+			if(validateErcAddress(accessedCookie))
+				user.ref = accessedCookie
+			console.log("Referrer: " + user.ref)
+		}
     }
-    return "";
-}
-
-if (accessCookie("ref").length > 0) {
-    if (validateAddress(accessCookie("ref"))) 
-		user.referrer = accessCookie("ref")
 }
 
 function validateAddress(address) {
     if (typeof address !== 'string')
         return false;
 
-    if (address[0] === "T" && address.length == 34)
+    if (address[0] === "0" && address[1] === "x"&& address.length == 42)
         return true;
 
     return false;
-}
-
-function createCookie(cookieName, cookieValue, daysToExpire) {
-    let date = new Date();
-    date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
-    document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toGMTString();
-}
-
-function checkURLForRef() {
-    if (window.location.href.indexOf("ref=") < 0) {
-        return "TTCQr5cP1Nw1qrQHF5D1M1cXxpMeDXZMX8"
-    } else {
-        const index = window.location.href.indexOf("ref=") + 4
-        return window.location.href.slice(index, index + 34)
-    }
-}
-
-if (checkURLForRef().length > 0) {
-    let ref = checkURLForRef();
-
-    createCookie("ref", ref, 10000000);
-
-    if(window.localStorage) {
-        localStorage.setItem('referrerAddress', ref);
-    }
 }

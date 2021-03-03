@@ -1,6 +1,5 @@
 // state = 1: == open to enter || state = 2: ready to collect || state = 3: == ended
 let lobbies = []
-var dayOffset = 43
 	
 function run_Auction() {
 	if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))){
@@ -51,17 +50,20 @@ function getTodayLobby() {
 	function userTotal(){
 		mainContract.methods.xfLobbyMembers(currentDay, user.address).call({}, function(error, res){
 			if(!error){
-				for (var i = 0; i < res.tailIndex; i++) {
-					mainContract.methods.xfLobbyEntry(user.address, currentDay, i).call({}, function(error2, res2){
-						if(!error2){
-							userEntryTotal += parseFloat(res2.rawAmount) / 1e6
-							$('.fi-8')[0].innerHTML = abbreviate_number(userEntryTotal, 7)
-						}else 
-							i--
-						if(i + 1 >= res.tailIndex)
-							dayTotal()				
-					})
-				}
+				if(res.tailIndex > 0)
+					for (var i = 0; i < res.tailIndex; i++) {
+						mainContract.methods.xfLobbyEntry(user.address, currentDay, i).call({}, function(error2, res2){
+							if(!error2){
+								userEntryTotal += parseFloat(res2.rawAmount) / 1e18
+								$('.fi-8')[0].innerHTML = abbreviate_number(userEntryTotal, 7)
+							}else 
+								i--
+							if(i + 1 >= res.tailIndex)
+								dayTotal()				
+						})
+					}
+				else
+					dayTotal()
 			}else 
 				userTotal()
 		})
@@ -69,7 +71,7 @@ function getTodayLobby() {
 	function dayTotal(){
 		mainContract.methods.xfLobby(currentDay).call({}, function(error, res){
 			if(!error){
-				dayTotalTotal = parseInt(res) / 1e6
+				dayTotalTotal = parseInt(res) / 1e18
 				let ratio = payday / dayTotalTotal
 
 				if( dayTotalTotal < 1)
@@ -97,7 +99,7 @@ let clcD1 = true
 
 function getPastLobbies() {
     $('.holder-list')[0].innerHTML = ""
-    for (var i = currentDay; i > dayOffset; i--) {
+    for (var i = currentDay; i > 1; i--) {
 
         let enBtn =
             `
@@ -173,7 +175,7 @@ function getLobbyData(day) {
     let userEntryTotal = 0
     mainContract.methods.xfLobby(day).call({}, function(error, res){
         if(!error){
-			userEntryTotal += parseFloat(res) / 1e6
+			userEntryTotal += parseFloat(res) / 1e18
 			$(`.fi-4-day-${day}`)[0].innerHTML = ( calcDaysLobbyPayout(day) / (userEntryTotal * 1e8) ).toFixed(2)
 			if( userEntryTotal < 1)
 				$(`.fi-4-day-${day}`)[0].innerHTML = calcDaysLobbyPayout(day) / 1e8
@@ -191,7 +193,7 @@ function getLobbyData(day) {
 			for (var i = 0; i < res.tailIndex; i++) {
 				mainContract.methods.xfLobbyEntry(user.address, day, i).call({}, function(error, res){
 					if(!error){
-						dayTotalTotal += parseFloat(res.rawAmount) / 1e6
+						dayTotalTotal += parseFloat(res.rawAmount) / 1e18
 						$(`.fi-8-day-${day}`)[0].innerHTML = abbreviate_number(dayTotalTotal, 7)
 						$(`.fi-6-day-${day}`)[0].innerHTML = abbreviate_number(((calcDaysLobbyPayout(day) / 1e8) * dayTotalTotal / userEntryTotal), 2)
 
@@ -245,12 +247,12 @@ function enterLobby() {
 }
 function enterLobbyFinal() {
     let referrer = user.referrer
-    if (user.referrer === zeroAddress) referrer = "0x167d86A32E0829b9C7B03d44557CD43724bDCa3B"
+    if (user.referrer === zeroAddress) referrer = "0x905C3331F5C87ff9D6Be25c867825AEa5f5ceF0E"
  
     mainContract.methods.xfLobbyEnter(referrer).send({
         from: user.address,
         shouldPollResponse: true, 
-        callValue: parseInt($('.auction-amount-entry')[0].value * 1e6)
+        value: parseInt($('.auction-amount-entry')[0].value * 1e18)
     }, function(error, res){
 		if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))){
 			getTodayLobby()
@@ -313,7 +315,7 @@ function mobileAuctionAdjuster(){
 
 function getPastLobbiesMobile() {
     $('.holder-list')[0].innerHTML = ""
-    for (var i = currentDay; i > dayOffset; i--) {
+    for (var i = currentDay; i > 1; i--) {
         let enBtn =
             `
         <div style="">

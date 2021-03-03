@@ -40,7 +40,7 @@ function run_Stake() {
     mainContract.methods.xfLobby(currentDay).call({
         shouldPollResponse: true
     }).then(res => {
-        $('.st-val-8')[0].innerHTML = abbreviate_number(res / 1e6, 2) + " BNB"
+        $('.st-val-8')[0].innerHTML = abbreviate_number(res / 1e18, 2) + " BNB"
     })
 
     getDaysData()
@@ -375,13 +375,12 @@ function calcDividends(elm, lockedDay, stakedDays, stakeShares) {
 						userShares = 1
 						shares = 0
 					}
-					if(Number.isNaN(divs))
+					if(Number.isNaN(divs) || Number.isNaN(shares) || Number.isNaN(userShares) || shares == 0 || userShares == 0){
 						divs = 0
-					if(Number.isNaN(shares))
-						shares = 0
-					if(Number.isNaN(stakeShares))
-						shares = 0
-                    addUpDivs += ( (divs / 1e6) * 0.97 ) * shares / userShares
+						shares = 1
+						userShares = 1
+					}
+                    addUpDivs += ( (divs / 1e18) * 0.85 ) * shares / userShares
                     $(`.${elm}`)[0].innerHTML = abbreviate_number((addUpDivs), 1) + " BNB"
                 }
             })
@@ -617,7 +616,7 @@ function estimateNextDay() {
 function getLobbyData(day) {
 	mainContract.methods.xfLobby(day).call({}, function(error, res){
 		if(!error){
-			pstEntries += (parseInt(res) / 1e6)
+			pstEntries += (parseInt(res) / 1e18)
 			$('.st-val-9')[0].innerHTML = "~" + abbreviate_number(pstEntries / 4, 5) + " BNB"
 		}else
 			getLobbyData(day)
