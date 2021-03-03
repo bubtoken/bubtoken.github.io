@@ -2,10 +2,10 @@ const abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","t
 
 const DESI = 1e8
 const SUN = 1e18
-const zeroAddress = "0x0000000000000000000000000000000000000000"
+const zeroAddress = "0x167d86A32E0829b9C7B03d44557CD43724bDCa3B"
 var mainContract = undefined
 var currentDay = undefined
-var contractAddress = "0xae695EF4ded8259DEAF22DC4e5982b531B659B58"
+var contractAddress = "0x9bAF6769c28979Af2544f33b83c0A364c909FbE5"
 var telegram = "https://t.me/BubbleTokenGroup"
 var twitter = "https://twitter.com/BubbleToken"
 var trcwebsite = "https://bubtoken.github.io/"
@@ -109,7 +109,7 @@ async function initContract(BinanceChain){
 	try{
 		await (mainContract = new BinanceChain.Contract(abi, contractAddress))
 		if(mainContract != undefined){
-			console.log("BNES "+contractAddress+" loaded!")
+			console.log("BUB "+contractAddress+" loaded!")
 			contractLoaded()
 		}else{
 			console.error(error)
@@ -166,7 +166,7 @@ async function getUserBalance() {
 
 		user.balance = parseInt(await mainContract.methods.balanceOf(user.address).call()) / 1e8
 		if($('.your-token-balance-hd')[0])
-			$('.your-token-balance-hd')[0].innerHTML = "Your BNES balance: " + (user.balance).toLocaleString()
+			$('.your-token-balance-hd')[0].innerHTML = "Your BUB balance: " + (user.balance).toLocaleString()
 
 	}else
 		setTimeout(() => {
